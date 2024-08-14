@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⭐Css Gradient Generator⭐</title>
+    <style>
+        body {
+        background-image: linear-gradient(to right, #4bc547, #fbd1d0);
+        font-family: 'Arial', sans-serif;
+        color: white;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        transition: background-image 0.5s ease-in-out;
+        
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        div {
+            margin: 20px 0;
+        }
+
+        button {
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 50px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+
+        #myButton {
+            background-color: #4bc547;
+            box-shadow: 0px 0px 20px rgba(5, 25, 55, 0.5);
+        }
+
+        #myButton2 {
+            background-color: #fbd1d0;
+            box-shadow: 0px 0px 20px rgba(0, 135, 147, 0.5);
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        h2 {
+            margin: 10px 0;
+            font-size: 24px;
+        }
+
+        .copyCode {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border: 1px solid #fff;
+            display: inline-block;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <section>
+        <h1>CREATE YOUR OWN CSS COLOUR GRADIENT!</h1>
+
+        <h2>Choose the direction of the gradient </h2>
+        <div>
+            <button id ="myButton">#4bc547</button>
+            <button id = "myButton2">#fbd1d0</button>
+        </div>
+        
+        <h2>⭐👇🏻👇🏻 Click to below Css code to copy 👇🏻👇🏻⭐</h2>
+        <div class="copyCode">
+            background-image: linear-gradient(to right, #4bc547, #fbd1d0)
+        </div>
+    </section>
+
+
+    <br>
+    <hr>
+    <footer>
+        &#169 2024, All Rights Are Reservered By AMAN AGRAWAL
+        <br>
+        Try to clone the webpage ColourSpace 
+    </footer>
+
+    <script>
+        let btn1 = document.getElementById("myButton");
+        let btn2 = document.getElementById("myButton2");
+
+        let copyDiv1 = document.querySelector(".copyCode");
+
+        const hexValue = () =>{    // for getting the hexadecimal value of the color code ;
+            let myhexValue = "0123456789abcdef";
+            let color = "#"
+            for (let i = 0 ; i< 6; i++){
+                color = color + myhexValue[Math.floor(Math.random()*(myhexValue.length))];
+            }
+            return color;
+            // console.log(color);  // yup its working . Thought by me 
+        };
+         
+        let hex1 = "#4bc547";
+        let hex2 = "#fbd1d0";
+        const handleBtn1 =() => {
+            // Precaution : adding a vary rare condition of matching of both the random no. if ever it happens then gradient not forms. 
+            let newHex;
+            do {
+                newHex = hexValue();
+            } while (newHex === hex2);
+            hex1 = newHex;
+            // console.log(hex1);
+
+            document.body.style.backgroundImage =  `linear-gradient(to right, ${hex1}, ${hex2})`;
+            document.getElementById("myButton").style.backgroundColor = `${hex1}`;
+            btn1.textContent= `${hex1}`;
+            copyDiv1.innerHTML = `background-image: linear-gradient(to right, ${hex1}, ${hex2})`;
+            
+
+        };
+
+
+        const handleBtn2 =() => {
+            // Precaution : adding a vary rare condition of matching of both the random no. if ever it happens then gradient not forms. 
+            let newHex;
+            do {
+                newHex = hexValue();
+            } while (newHex === hex1);
+            hex2 = newHex;
+            // console.log(hex2);
+
+            document.body.style.backgroundImage =  `linear-gradient(to right, ${hex1}, ${hex2})`;
+            document.getElementById("myButton2").style.backgroundColor = `${hex2}`;
+            btn2.textContent = `${hex2}`;
+            copyDiv1.innerHTML = `background-image: linear-gradient(to right, ${hex1}, ${hex2})`;
+
+        };
+
+
+        btn1.addEventListener("click", handleBtn1);
+        btn2.addEventListener("click", handleBtn2);
+
+        // using Navigator to copy the data in the field to the clipboard...
+        copyDiv1.addEventListener("click", ()=>{
+            navigator.clipboard.writeText(copyDiv1.innerText);
+            alert("The CSS code has been copied to the clipBoard");
+        });
+
+    </script>
+
+</body>
+
+</html>
