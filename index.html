@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>⭐Css Gradient Generator⭐</title>
     <style>
+        
         body {
         background-image: linear-gradient(to right, #4bc547, #fbd1d0);
         font-family: 'Arial', sans-serif;
@@ -12,11 +13,17 @@
         text-align: center;
         margin: 0;
         padding: 0;
-        transition: background-image 0.5s ease-in-out;
+        height: 100vh; /* Full viewport height */
+        display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
+            transition: background-image 0.5s ease-in-out;
         
         }
 
         section {
+            text-align: center;
             padding: 20px;
         }
 
@@ -50,24 +57,32 @@
             background-color: rgba(255, 255, 255, 0.2);
         }
 
-        h2 {
+        #clickToCopy {
+
             margin: 10px 0;
             font-size: 24px;
         }
 
+        h1{
+            margin-bottom: 30px; /* Move the h1 slightly below */
+        }
         .copyCode {
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.3);
             padding: 10px;
             border: 1px solid #fff;
+            border-radius: 3vh;
             display: inline-block;
             font-family: 'Courier New', Courier, monospace;
         }
 
         footer {
-            margin-top: 20px;
+            position: fixed; /* Stick to the bottom of the viewport */
+            bottom: 0; /* Stick to the bottom */
+            width: 100%; /* Full width */
             padding: 10px;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.4);
             font-size: 14px;
+            color: white; /* Ensure text is visible */
         }
 
     </style>
@@ -77,13 +92,13 @@
     <section>
         <h1>CREATE YOUR OWN CSS COLOUR GRADIENT!</h1>
 
-        <h2>Choose the direction of the gradient </h2>
+        <!-- <h2>Choose the direction of the gradient </h2> -->
         <div>
             <button id ="myButton">#4bc547</button>
             <button id = "myButton2">#fbd1d0</button>
         </div>
         
-        <h2>⭐👇🏻👇🏻 Click to below Css code to copy 👇🏻👇🏻⭐</h2>
+        <h2 id = "clickToCopy">⭐👇🏻👇🏻 Click to below Css code to copy 👇🏻👇🏻⭐</h2>
         <div class="copyCode">
             background-image: linear-gradient(to right, #4bc547, #fbd1d0)
         </div>
@@ -92,13 +107,17 @@
 
     <br>
     <hr>
+
     <footer>
         &#169 2024, All Rights Are Reservered By AMAN AGRAWAL
         <br>
-        Try to clone the webpage ColourSpace 
+        <!-- Tried to clone the webpage ColourSpace  -->
     </footer>
 
     <script>
+        setTimeout(()=>{
+            alert("Welcome to my project! Here you can customise the color gradient on clicking the two button which throws random color and make the background as per that color. You can copy the code of that gradient from the section below!");
+        },3000);
         let btn1 = document.getElementById("myButton");
         let btn2 = document.getElementById("myButton2");
 
